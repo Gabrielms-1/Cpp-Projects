@@ -117,7 +117,7 @@ int main(){
 }
 
 void mostrar_pontuacao(){
-    ifstream file("highest_c++_score.txt");
+    ifstream file("Recordes.txt");
     string nome;
     int pontuacao;
 
@@ -133,12 +133,12 @@ void mostrar_pontuacao(){
 int recorde(){
     int pontuacao;
     string nome;
-    ifstream file("highest_c++_score.txt");
+    ifstream file("Recordes.txt");
     file >> nome >> pontuacao;
     return pontuacao;
 }
 
 void update_pontuacao(string nome, int pontuacao){
-    ofstream file("highest_c++_score.txt");
+    ofstream file("Recordes.txt");
     file << nome << " " << pontuacao;
 }
