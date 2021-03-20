@@ -49,23 +49,24 @@ int main(){
         char tecla;
 
         while(contador<10){
-            int contaLinhas = 0;
-            int randLinha = rand()%10;
-            if(verificaRepeticao[randLinha] == 0){
-                verificaRepeticao[randLinha] = 1;
+            int contaLinhas = 0;        // contador de linhas do arquivo
+            int randLinha = rand()%10;  // gera um numero de 0 a 23 (24 questões)
+            if(verificaRepeticao[randLinha] == 0){      // checa repetição no vetor check_repeat
+                                                        // o elemento de posiçao [rand_line] é igual a 0? (ainda nao ocorreu?)
+                verificaRepeticao[randLinha] = 1;       // se nao for, check_repeat[rand_line] = 1 (sinaliza q ja foi usado)
 
-                ifstream file("Banco_Perguntas.txt");
-                while(randLinha!= contaLinhas){
-                    getline(file, questao);
-                    getline(file, resposta);
-                    contaLinhas++;
+                ifstream file("Banco_Perguntas.txt");       // abre o arquivo
+                while(randLinha!= contaLinhas){     // enquanto o numero da linha gerada for diferente da qnt de linhas
+                    getline(file, questao);         // linha = questao
+                    getline(file, resposta);        // linha seguinte = resposta
+                    contaLinhas++;                  // adiciona ao contador de linha
                 }
 
-                getline(file, questao);
+                getline(file, questao);         // quando a linha gerada for igual ao contador, não da line++
                 getline(file, resposta);
 
                 system("clear");
-
+                
                 cout << "Questao numero: " << contador+1 << endl;
                 cout << questao << endl;
                 
